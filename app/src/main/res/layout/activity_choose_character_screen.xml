@@ -56,4 +56,13 @@
         app:layout_constraintEnd_toEndOf="@+id/thiefButton"
         app:layout_constraintStart_toStartOf="@+id/thiefButton"
         app:layout_constraintTop_toBottomOf="@+id/thiefButton" />
+
+    <Button
+        android:id="@+id/to_PaintActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Draw Character"
+        app:layout_constraintEnd_toEndOf="@+id/archerButton"
+        app:layout_constraintStart_toStartOf="@+id/archerButton"
+        app:layout_constraintTop_toBottomOf="@+id/archerButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,7 @@ public class ChooseCharacterScreen extends AppCompatActivity {
     Button sorcererButton;
     Button thiefButton;
     Button archerButton;
+    Button toPaintButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class ChooseCharacterScreen extends AppCompatActivity {
         sorcererButton = findViewById(R.id.sorcererButton);
         thiefButton = findViewById(R.id.thiefButton);
         archerButton = findViewById(R.id.archerButton);
+        toPaintButton = findViewById(R.id.to_PaintActivity);
 
         warriorButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +75,13 @@ public class ChooseCharacterScreen extends AppCompatActivity {
                 hero = new Archer();
                 intent.putExtra("hero", hero);
                 Log.d(TAG, hero.name);
+                startActivity(intent);
+            }
+        });
+        toPaintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChooseCharacterScreen.this, PaintActivity.class);
                 startActivity(intent);
             }
         });
