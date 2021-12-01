@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseCharacterScreen">
+
+    <TextView
+        android:id="@+id/askClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please Select Your Class"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.373" />
+
+    <Button
+        android:id="@+id/warriorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Warrior"
+        app:layout_constraintEnd_toEndOf="@+id/askClass"
+        app:layout_constraintStart_toStartOf="@+id/askClass"
+        app:layout_constraintTop_toBottomOf="@+id/askClass" />
+
+    <Button
+        android:id="@+id/sorcererButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sorcerer"
+        app:layout_constraintEnd_toEndOf="@+id/warriorButton"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/warriorButton"
+        app:layout_constraintTop_toBottomOf="@+id/warriorButton" />
+
+    <Button
+        android:id="@+id/thiefButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thief"
+        app:layout_constraintEnd_toEndOf="@+id/sorcererButton"
+        app:layout_constraintStart_toStartOf="@+id/sorcererButton"
+        app:layout_constraintTop_toBottomOf="@+id/sorcererButton" />
+
+    <Button
+        android:id="@+id/archerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Archer"
+        app:layout_constraintEnd_toEndOf="@+id/thiefButton"
+        app:layout_constraintStart_toStartOf="@+id/thiefButton"
+        app:layout_constraintTop_toBottomOf="@+id/thiefButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>
