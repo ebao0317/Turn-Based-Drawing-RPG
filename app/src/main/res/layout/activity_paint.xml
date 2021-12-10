@@ -4,38 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PaintActivity">
+    tools:context=".MainActivity">
+
+
+    <com.example.basic_tbb.PaintView
+        android:id="@+id/paintView"
+        android:layout_width="406dp"
+        android:layout_height="597dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/change_color_button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paintView"
+        app:layout_constraintVertical_bias="0.166" />
 
     <Button
-        android:id="@+id/return_button"
+        android:id="@+id/change_color_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Return"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/color_TextView"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/color_TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="16dp"
-        android:text="Color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/color_spinner"
-        app:layout_constraintStart_toEndOf="@+id/return_button" />
-
-    <Spinner
-        android:id="@+id/color_spinner"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
+        android:text="Change Color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/color_TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/paintView"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <TextView
+        android:id="@+id/current_pen_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Pen Size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/change_color_button"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintVertical_bias="0.154" />
 </androidx.constraintlayout.widget.ConstraintLayout>
