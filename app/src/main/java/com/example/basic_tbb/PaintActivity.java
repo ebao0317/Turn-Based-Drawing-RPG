@@ -34,14 +34,14 @@ public class PaintActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Button button;
+        Button changeColorBtn;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint);
 
         canvasExporter = new CanvasExporter();
         paintView = findViewById(R.id.paintView);
-        button = findViewById(R.id.change_color_button);
+        changeColorBtn = findViewById(R.id.change_color_button);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         SeekBar seekBar = findViewById(R.id.seekBar);
         final TextView textView = findViewById(R.id.current_pen_size);
@@ -52,7 +52,7 @@ public class PaintActivity extends AppCompatActivity {
 
         textView.setText("Pen size: " + seekBar.getProgress());
 
-        button.setOnClickListener(new View.OnClickListener() {
+        changeColorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openColorPicker();

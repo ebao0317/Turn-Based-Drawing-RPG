@@ -3,6 +3,7 @@ package com.example.basic_tbb;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,8 +51,16 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         if(intent != null) {
-            hero = (Hero) intent.getSerializableExtra("hero");
-            Log.d(TAG, hero.name);
+            if(intent.hasExtra("custom character"))
+            {
+                hero = (Hero) intent.getSerializableExtra("custom character");
+                Uri image = Uri.parse(intent.getStringExtra("image"));
+                heroImage.setImageURI(image);
+            }
+            else {
+                hero = (Hero) intent.getSerializableExtra("hero");
+                Log.d(TAG, hero.name);
+            }
         }
 
         heroName.setText(hero.name);
