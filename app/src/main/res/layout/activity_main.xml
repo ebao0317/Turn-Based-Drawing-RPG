@@ -13,10 +13,11 @@
         android:text="Monster Name"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134" />
+        app:layout_constraintVertical_bias="0.069" />
 
     <TextView
         android:id="@+id/monsterHP"
@@ -35,11 +36,11 @@
         android:text="Hero Name"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.844"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.784" />
+        app:layout_constraintVertical_bias="0.86" />
 
     <TextView
         android:id="@+id/heroHP"
@@ -95,8 +96,7 @@
         android:layout_width="237dp"
         android:layout_height="377dp"
         android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="176dp"
         android:text="Actions this Round"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -105,22 +105,23 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="91dp"
-        android:layout_height="58dp"
-        app:layout_constraintBottom_toTopOf="@+id/monsterName"
-        app:layout_constraintEnd_toEndOf="@+id/monsterName"
-        app:layout_constraintStart_toStartOf="@+id/monsterName"
+        android:layout_width="133dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/monster" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="92dp"
-        android:layout_height="63dp"
+        android:layout_width="202dp"
+        android:layout_height="156dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/heroHP"
-        app:layout_constraintStart_toStartOf="@+id/heroHP"
-        app:layout_constraintTop_toBottomOf="@+id/heroHP"
+        app:layout_constraintEnd_toStartOf="@+id/heroName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/warrior" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

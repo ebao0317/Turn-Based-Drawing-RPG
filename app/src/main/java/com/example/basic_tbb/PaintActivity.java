@@ -1,3 +1,11 @@
+// PaintActivity.java
+// This file deals with the paint activity and allows the user to paint on a canvas
+// CPSC 312-02, Fall 2021
+// Programming Assignment #6
+// Sources: https://www.youtube.com/watch?v=LqJko2Ln86E followed this video series to create this class
+//
+// Created by Ethan Bao on 12/09/21
+
 package com.example.basic_tbb;
 
 import androidx.annotation.NonNull;

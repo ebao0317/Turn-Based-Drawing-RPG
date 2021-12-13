@@ -330,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
             specialButton.setEnabled(false);
             magicButton.setEnabled(false);
             guardButton.setEnabled(false);
-            actionInfo.setText(winner + " has won this time!");
+            actionInfo.append("\n" + winner + " has won this time!");
         }
     }
     public void chooseMonster() {

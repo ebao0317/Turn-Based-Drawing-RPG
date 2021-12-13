@@ -1,3 +1,13 @@
+// StorageRationaleDialog.java
+// This file helps with saving to the gallery
+// CPSC 312-02, Fall 2021
+// Programming Assignment #6
+// Sources: https://www.youtube.com/watch?v=LqJko2Ln86E followed this video series to create this class
+// Specifically for this class, the way to save was outdated in the video so I used the creators updated version of paint app
+// and utilized that way to save the bitmap to gallery. I could not really figure out how else to save without having this
+// class with its xml which does not even display
+// Link to his public github repo: https://github.com/danstoakes/2021-simple-paint-app where I derived his saving method
+// Created by Ethan Bao on 12/09/21
 package com.example.basic_tbb;
 
 import android.app.Activity;
