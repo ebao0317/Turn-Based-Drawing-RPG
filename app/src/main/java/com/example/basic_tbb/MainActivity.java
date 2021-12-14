@@ -155,6 +155,14 @@ public class MainActivity extends AppCompatActivity {
                 if (monster.damageLastTaken == 0) {
                     actionInfo.append("\n" + hero.name + "'s attack missed...");
                 }
+                if(hero instanceof CustomHero) {
+                    if(monster.damageLastTaken == 0) {
+                        actionInfo.append("\n" + hero.name + " failed to land Special Attack");
+                    }
+                    else {
+                        actionInfo.append("\n" + hero.name + " successfully landed Special Attack");
+                    }
+                }
                 monsterTurn();
                 if (monster.ifDamageTaken()) {
                     if (monsterBlock) {
@@ -213,6 +221,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(hero instanceof Archer) {
                     actionInfo.append("\n" + hero.name + " casted Civilization's Blessing");
+                    actionInfo.append("\n" + hero.name + " increased damage range by 15");
+                }
+                if(hero instanceof CustomHero) {
+                    actionInfo.append("\n" + hero.name + " casted their True Magic");
                     actionInfo.append("\n" + hero.name + " increased damage range by 15");
                 }
                 monsterTurn();
