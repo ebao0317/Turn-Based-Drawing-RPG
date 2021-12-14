@@ -16,9 +16,7 @@ import android.util.Log;
 import java.io.File;
 import java.io.FileOutputStream;
 
-/**
- * Class which handles the exporting of CanvasView drawings through saving/sharing.
- */
+
 public class CanvasExporter
 {
     private static final String DIRECTORY_PATH = "/Pictures/Paint";
@@ -34,9 +32,7 @@ public class CanvasExporter
 
     private int exportType;
 
-    /**
-     * Constructor which finds the sub-directory to be exported to.
-     */
+
     public CanvasExporter()
     {
         // get the output storage directory and find the sub-directory.
@@ -44,28 +40,19 @@ public class CanvasExporter
         subDirectory = new File(storageDirectory.toString() + DIRECTORY_PATH);
     }
 
-    /**
-     * Sets the export type to be used within the activity.
-     * @param exportType - the export type.
-     */
+
     public void setExportType (int exportType)
     {
         this.exportType = exportType;
     }
 
-    /**
-     * Returns the export type which is used within the activity.
-     * @return exportType - the export type.
-     */
+
     public int getExportType ()
     {
         return exportType;
     }
 
-    /**
-     * Creates the sub-directory if it does not already exist.
-     * @return boolean - whether the sub-directory exists.
-     */
+
     private boolean createDirectory ()
     {
         // if the sub-directory does not exist, create it
@@ -75,11 +62,7 @@ public class CanvasExporter
         return true;
     }
 
-    /**
-     * Returns the number of files which already exist within a given directory.
-     * @param directory - the directory to check for files.
-     * @return int - the number of existing files.
-     */
+
     public int getExistingFileCount(File directory)
     {
         int count = 0;
@@ -100,11 +83,6 @@ public class CanvasExporter
         return count;
     }
 
-    /**
-     * Outputs an input bitmap to a given output FileOutputStream.
-     * @param image - the output image file.
-     * @param bitmap - the bitmap representation of a drawing.
-     */
     private void outputToFileStream (File image, Bitmap bitmap)
     {
         FileOutputStream fileOutputStream;
@@ -123,11 +101,6 @@ public class CanvasExporter
         }
     }
 
-    /**
-     * Saves the image to a file and returns the path to the saved file.
-     * @param bitmap - the bitmap to be saved as an image.
-     * @return String - the path to the saved image.
-     */
     public String saveImage(Bitmap bitmap)
     {
         boolean created = createDirectory();
@@ -144,11 +117,6 @@ public class CanvasExporter
         return null;
     }
 
-    /**
-     * Returns the image representation of an input bitmap.
-     * @param bitmap - the bitmap to be saved as an image.
-     * @return File - the file to which the bitmap was saved.
-     */
     public File getImage(Bitmap bitmap)
     {
         boolean created = createDirectory();

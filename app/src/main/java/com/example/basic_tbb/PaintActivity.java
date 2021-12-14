@@ -118,10 +118,6 @@ public class PaintActivity extends AppCompatActivity {
                 StorageRationaleDialog dialog = new StorageRationaleDialog(PaintActivity.this);
                 dialog.setOnStorageRationaleOptionSelectedListener(new StorageRationaleDialog.StorageRationaleOptionSelectedListener()
                 {
-                    /**
-                     * Callback method which handles whether a user accepted the permission or not.
-                     * @param allow - whether the permission is accepted or not.
-                     */
                     @Override
                     public void onStorageRationaleOptionSelected(boolean allow)
                     {
@@ -199,7 +195,7 @@ public class PaintActivity extends AppCompatActivity {
     {
         if (canvasExporter.getExportType() == CanvasExporter.FLAG_SAVE)
         {
-            // if the user is wanting to save, attempt and return its filename
+            // if user wants to save, attempt to save and return the filename
             String fileName = canvasExporter.saveImage(paintView.getmBitmap());
 
             if (fileName != null)

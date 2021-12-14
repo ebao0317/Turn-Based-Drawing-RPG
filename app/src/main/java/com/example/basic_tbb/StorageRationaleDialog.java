@@ -20,17 +20,12 @@ import android.view.Window;
 import android.widget.Button;
 import androidx.annotation.NonNull;
 
-/**
- * Custom dialog which displays the storage rationale to the user.
- */
+
 public class StorageRationaleDialog extends Dialog implements View.OnClickListener
 {
     private StorageRationaleOptionSelectedListener listener;
 
-    /**
-     * Constructor for the class. Handles the creation of the dialog window and setting of listeners.
-     * @param context - the context of the application.
-     */
+
     public StorageRationaleDialog(@NonNull Context context)
     {
         // set the current activity using the context
@@ -53,19 +48,13 @@ public class StorageRationaleDialog extends Dialog implements View.OnClickListen
         buttonAllow.setBackgroundTintList(null);
     }
 
-    /**
-     * Sets the listener for the dialog box.
-     * @param listener - the listener for options being selected.
-     */
+
     public void setOnStorageRationaleOptionSelectedListener (StorageRationaleOptionSelectedListener listener)
     {
         this.listener = listener;
     }
 
-    /**
-     * The click handler for the various clickable elements in the dialog.
-     * @param v - the dialog view object which was clicked.
-     */
+
     @Override
     public void onClick(View v)
     {
@@ -83,9 +72,6 @@ public class StorageRationaleDialog extends Dialog implements View.OnClickListen
         }
     }
 
-    /**
-     * Interface which handles callbacks when dialog options are selected.
-     */
     public interface StorageRationaleOptionSelectedListener
     {
         void onStorageRationaleOptionSelected (boolean allow);
