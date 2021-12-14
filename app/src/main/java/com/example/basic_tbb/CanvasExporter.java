@@ -1,7 +1,7 @@
 // StorageRationaleDialog.java
 // This file helps with saving to the gallery
 // CPSC 312-02, Fall 2021
-// Programming Assignment #6
+// Project
 // Sources: https://www.youtube.com/watch?v=LqJko2Ln86E followed this video series to create this class
 // Specifically for this class, the way to save was outdated in the video so I used the creators updated version of paint app
 // and utilized that way to save the bitmap to gallery.

@@ -1,7 +1,7 @@
 // PaintActivity.java
 // This file deals with the paint activity and allows the user to paint on a canvas
 // CPSC 312-02, Fall 2021
-// Programming Assignment #6
+// Project
 // Sources: https://www.youtube.com/watch?v=LqJko2Ln86E followed this video series to create this class
 //
 // Created by Ethan Bao on 12/09/21
@@ -66,6 +66,7 @@ public class PaintActivity extends AppCompatActivity {
                 openColorPicker();
             }
         });
+
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
