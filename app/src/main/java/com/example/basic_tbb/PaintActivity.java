@@ -106,34 +106,10 @@ public class PaintActivity extends AppCompatActivity {
         int permission = ContextCompat.checkSelfPermission(
                 this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-        if (permission == PackageManager.PERMISSION_DENIED)
-        {
-            // if the user has not granted permission
-            boolean shouldShowRationale = ActivityCompat.shouldShowRequestPermissionRationale(
-                    this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-            if (shouldShowRationale)
-            {
-                // display a rationale for saving (why the permission is needed)
-                StorageRationaleDialog dialog = new StorageRationaleDialog(PaintActivity.this);
-                dialog.setOnStorageRationaleOptionSelectedListener(new StorageRationaleDialog.StorageRationaleOptionSelectedListener()
-                {
-                    @Override
-                    public void onStorageRationaleOptionSelected(boolean allow)
-                    {
-                        // if the user accepts the storage permission in the dialog, request it officially
-                        if (allow)
-                            requestStoragePermission();
-                    }
-                });
-                dialog.show();
-            } else
-            {
-                // request the permission to write to storage
-                requestStoragePermission();
-            }
-        } else
-        {
+        if (permission == PackageManager.PERMISSION_DENIED) {
+            requestStoragePermission();
+        }
+        else {
             // save/share the image as permission already granted
             exportImage();
         }
