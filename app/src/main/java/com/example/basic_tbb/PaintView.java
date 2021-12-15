@@ -90,7 +90,7 @@ public class PaintView extends View {
 
         for (Draw draw : paths) {
             mPaint.setColor(draw.color);
-            mPaint.setStrokeWidth(strokeWidth);
+            mPaint.setStrokeWidth(draw.strokeWidth);
             mPaint.setMaskFilter(null);
 
             mCanvas.drawPath(draw.path, mPaint);
