@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Basic_TBB">
         <activity
+            android:name=".CreateCharacterActivity"
+            android:exported="false" />
+        <activity
             android:name=".PaintActivity"
             android:exported="false" />
         <activity

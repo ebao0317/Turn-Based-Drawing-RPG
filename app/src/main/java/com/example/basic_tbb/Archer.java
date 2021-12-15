@@ -47,7 +47,7 @@ public class Archer extends Hero implements Serializable {
         int damage;
         System.out.println(name + " used True Shot");
         System.out.println("Your aim never fails you!");
-        damage  = random.nextInt(100 - 60) + 60;
+        damage = random.nextInt(100 - 60) + 60;
         enemy.damageLastTaken = damage;
         minDmgRange = 60;
         maxDmgRange = 100;

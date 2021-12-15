@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     static final String TAG = "mainActivity: ";
     Monster monster = null;
     Hero hero = null;
+    CustomHero customHero = null;
     Random random = new Random();
     boolean heroBlock = false;
     boolean monsterBlock = false;
@@ -53,9 +54,12 @@ public class MainActivity extends AppCompatActivity {
         if(intent != null) {
             if(intent.hasExtra("custom character"))
             {
-                hero = (Hero) intent.getSerializableExtra("custom character");
-                Uri image = Uri.parse(intent.getStringExtra("image"));
-                heroImage.setImageURI(image);
+                //CustomHero hero1 = new CustomHero();
+                //this.hero = hero1;
+                //this.hero.get
+                hero = (CustomHero) intent.getSerializableExtra("custom character");
+                //Uri image = hero.
+                //heroImage.setImageURI(image);
             }
             else {
                 hero = (Hero) intent.getSerializableExtra("hero");

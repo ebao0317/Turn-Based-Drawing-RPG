@@ -9,4 +9,20 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hero_name">Hero Name</string>
+    <string name="magic">Magic</string>
+    <string name="skill">Skill</string>
+    <string name="enter_name_of_your_skill">enter name of your skill</string>
+
+    <string-array name="magicTypes">
+        <item>Support Magic</item>
+        <item>Offense Magic</item>
+        <item>Defense Magic</item>
+    </string-array>
+
+    <string-array name="skillTypes">
+        <item>Heavy Attack</item>
+        <item>Rush Attack</item>
+        <item>Accurate Attack</item>
+    </string-array>
 </resources>

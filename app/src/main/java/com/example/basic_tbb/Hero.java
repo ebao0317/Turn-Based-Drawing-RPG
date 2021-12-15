@@ -10,11 +10,5 @@ abstract public class Hero extends DungeonCharacter implements Serializable {
     abstract public void specialSkill(DungeonCharacter enemy);
     abstract public void magic(DungeonCharacter enemy);
 
-    public void getHeroName() {
-        Scanner kb = new Scanner(System.in);
-        System.out.println("Dear Hero, what is your name?");
-        name = kb.nextLine();
-    }
-
 }
 

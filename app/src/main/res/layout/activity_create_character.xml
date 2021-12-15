@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateCharacterActivity">
+
+    <Button
+        android:id="@+id/begin_game"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Begin Game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/hero_image"
+        android:layout_width="0dp"
+        android:layout_height="156dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/draw_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/warrior" />
+
+    <EditText
+        android:id="@+id/hero_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:hint="@string/hero_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hero_image" />
+
+    <TextView
+        android:id="@+id/magic_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:paddingVertical="8dp"
+        android:text="Magic Type:"
+        app:layout_constraintBottom_toTopOf="@+id/skill_type"
+        app:layout_constraintEnd_toStartOf="@+id/magic_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hero_name" />
+
+    <Button
+        android:id="@+id/draw_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Draw Image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/hero_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/load_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Load Image from gallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hero_image"
+        app:layout_constraintTop_toBottomOf="@+id/draw_image" />
+
+    <Spinner
+        android:id="@+id/magic_spinner"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/magic_type"
+        app:layout_constraintTop_toBottomOf="@+id/hero_name" />
+
+    <TextView
+        android:id="@+id/skill_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:paddingVertical="8dp"
+        android:text="Skill Type"
+        app:layout_constraintBottom_toTopOf="@+id/magic_name"
+        app:layout_constraintEnd_toStartOf="@+id/skill_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/magic_type" />
+
+    <Spinner
+        android:id="@+id/skill_spinner"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/skill_type"
+        app:layout_constraintTop_toBottomOf="@+id/magic_type" />
+
+    <TextView
+        android:id="@+id/magic_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:paddingVertical="13dp"
+        android:text="Magic Name:"
+        app:layout_constraintEnd_toStartOf="@+id/enter_magic_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skill_type" />
+
+    <TextView
+        android:id="@+id/skill_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:paddingVertical="13dp"
+        android:text="Skill Name:"
+        app:layout_constraintEnd_toStartOf="@+id/enter_skill_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/magic_name" />
+
+    <EditText
+        android:id="@+id/enter_magic_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:hint="@string/magic"
+        android:paddingHorizontal="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/magic_name"
+        app:layout_constraintTop_toBottomOf="@+id/skill_spinner" />
+
+    <EditText
+        android:id="@+id/enter_skill_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:hint="@string/enter_name_of_your_skill"
+        android:paddingHorizontal="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/skill_name"
+        app:layout_constraintTop_toBottomOf="@+id/magic_name" />
+</androidx.constraintlayout.widget.ConstraintLayout>
