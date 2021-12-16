@@ -84,7 +84,7 @@ public class CustomHero extends Hero implements Serializable {
                 return magicDescriptions;
             case OFFENSEMAGIC:
                 //Shoot fireball
-                enemy.damageLastTaken = 60;
+                enemy.HP -= 60;
                 magicDescriptions.add(" casted " + magicName);
                 magicDescriptions.add(" dealt 60 damage to the enemy");
                 return magicDescriptions;

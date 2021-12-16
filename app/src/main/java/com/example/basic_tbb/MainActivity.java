@@ -233,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void monsterTurn() {
         int monsterChoice = random.nextInt(4 - 1) + 1;
+        monsterHP.setText(String.valueOf(monster.HP));
         switch (monsterChoice) {
             case 1:
                 actionInfo.append("\n" + monster.name + " attacks");
