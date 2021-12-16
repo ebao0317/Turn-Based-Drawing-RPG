@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 if(monster.damageLastTaken == 0)
                     actionInfo.append("\n" + hero.name + "failed to hit " + abilityDescription);
                 else
-                    actionInfo.append("\n" + hero.name + "successfully landed " + abilityDescription);
+                    actionInfo.append("\n" + hero.name + " successfully landed " + abilityDescription);
 
                 monsterTurn();
                 if (monster.ifDamageTaken()) {
