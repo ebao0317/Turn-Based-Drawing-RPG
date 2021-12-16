@@ -1,3 +1,10 @@
+// Thief.java
+// This is the class file for the Thief hero class
+// CPSC 312-02, Fall 2021
+// Project
+//
+//
+// Created by Ethan Bao on 10/14/2021
 package com.example.basic_tbb;
 
 import java.io.Serializable;

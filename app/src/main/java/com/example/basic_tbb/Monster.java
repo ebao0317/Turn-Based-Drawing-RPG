@@ -1,3 +1,10 @@
+// Monster.java
+// This is the class file for the Monster abstract class with methods that children class need to implement or need
+// CPSC 312-02, Fall 2021
+// Project
+//
+//
+// Created by Ethan Bao on 10/14/2021
 package com.example.basic_tbb;
 
 import java.io.Serializable;

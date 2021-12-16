@@ -1,3 +1,11 @@
+// DungeonCharacter.java
+// This is the class file for the Dungeon Character abstract class. Gives basic methods and attributes
+// derived dungeon characters should have
+// CPSC 312-02, Fall 2021
+// Project
+//
+//
+// Created by Ethan Bao on 10/16/2021
 package com.example.basic_tbb;
 
 import java.io.Serializable;

@@ -1,3 +1,10 @@
+// Hero.java
+// This is the class file for abstract Hero class which gives some basic methods that children class should implement
+// CPSC 312-02, Fall 2021
+// Project
+//
+//
+// Created by Ethan Bao on 10/16/2021
 package com.example.basic_tbb;
 import java.io.Serializable;
 import java.util.Scanner;

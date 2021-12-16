@@ -3,7 +3,7 @@
 // CPSC 312-02, Fall 2021
 // Project
 // Sources: https://www.youtube.com/watch?v=LqJko2Ln86E followed this video series to create this class
-//
+// https://github.com/yukuku/ambilwarna implemented this into build.gradle to gain access to color picker
 // Created by Ethan Bao on 12/09/21
 
 package com.example.basic_tbb;

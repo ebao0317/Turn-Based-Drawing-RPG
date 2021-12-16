@@ -1,5 +1,5 @@
 // StorageRationaleDialog.java
-// This file helps with saving to the gallery
+// This file helps with saving to the gallery, essentially takes the canvas and exports it
 // CPSC 312-02, Fall 2021
 // Project
 // Sources: https://www.youtube.com/watch?v=LqJko2Ln86E followed this video series to create this class
@@ -19,6 +19,7 @@ import java.io.FileOutputStream;
 
 public class CanvasExporter
 {
+    //saves to a directory within the photo gallery
     private static final String DIRECTORY_PATH = "/Pictures/Paint";
     private static final String SAVE_FILE_NAME = "/drawing_";
     private static final String SHARE_FILE_NAME = "/shared_";
@@ -33,8 +34,7 @@ public class CanvasExporter
     private int exportType;
 
 
-    public CanvasExporter()
-    {
+    public CanvasExporter() {
         // get the output storage directory and find the sub-directory.
         File storageDirectory = Environment.getExternalStorageDirectory();
         subDirectory = new File(storageDirectory.toString() + DIRECTORY_PATH);
@@ -52,39 +52,42 @@ public class CanvasExporter
         return exportType;
     }
 
-
-    private boolean createDirectory ()
-    {
-        // if the sub-directory does not exist, create it
-        if (!subDirectory.exists())
+    /*
+     * Creates the subdirectory and returns true if it already exists or the result of creating the subdirectory
+     */
+    private boolean createDirectory () {
+        // creates the subdirectory if it does not exist
+        if (!subDirectory.exists()) {
             return subDirectory.mkdir();
-        // return true if it already exists
+        }
+        // returns true if the directory already exists
         return true;
     }
 
-
-    public int getExistingFileCount(File directory)
-    {
+    /*
+     * Loops through our directory and counts how many photos are already in the directory
+     */
+    public int getExistingFileCount(File directory) {
         int count = 0;
         // get the existing images as an array
         File[] existingImages = directory.listFiles();
-        // if there is at least one image
-        if (existingImages != null)
-        {
-            // loop through the existing images
-            for (File file : existingImages)
-            {
+        if (existingImages != null) {
+            // loops through the list of images in the directory
+            for (File file : existingImages) {
                 // extract the file name and increment the counter if it is a valid file type
                 String name = file.getName();
-                if (name.endsWith(".jpg") || name.endsWith(".png"))
+                if (name.endsWith(".jpg") || name.endsWith(".png")) {
                     count++;
+                }
             }
         }
         return count;
     }
 
-    private void outputToFileStream (File image, Bitmap bitmap)
-    {
+    /*
+     * Essentially saves the bitmap, which is our painting, to the gallery
+     */
+    private void outputToFileStream (File image, Bitmap bitmap) {
         FileOutputStream fileOutputStream;
         try
         {
@@ -96,13 +99,14 @@ public class CanvasExporter
             fileOutputStream.close();
         } catch (Exception e)
         {
-            // throw an error message
             Log.w("ERROR", "" + e.getMessage());
         }
     }
 
-    public String saveImage(Bitmap bitmap)
-    {
+    /*
+     * Saves the image bitmap calling the previous function to help in achieving this
+     */
+    public String saveImage(Bitmap bitmap) {
         boolean created = createDirectory();
         // if the sub-directory exists or was created successfully
         if (subDirectory.exists() || created)
@@ -113,21 +117,6 @@ public class CanvasExporter
             outputToFileStream(image, bitmap);
             // return the path to the saved image.
             return image.getAbsolutePath();
-        }
-        return null;
-    }
-
-    public File getImage(Bitmap bitmap)
-    {
-        boolean created = createDirectory();
-        // if the sub-directory exists or was created successfully
-        if (subDirectory.exists() || created)
-        {
-            // create a new file for the bitmap to allow it to be shared
-            File image = new File(subDirectory, SHARE_FILE_NAME + Math.random() + FILE_EXTENSION);
-            outputToFileStream(image, bitmap);
-            // return the image file
-            return image;
         }
         return null;
     }

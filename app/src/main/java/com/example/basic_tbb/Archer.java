@@ -1,3 +1,10 @@
+// Archer.java
+// This is the class file for the Archer hero class
+// CPSC 312-02, Fall 2021
+// Project
+//
+//
+// Created by Ethan Bao on 10/16/2021
 package com.example.basic_tbb;
 
 import java.io.Serializable;

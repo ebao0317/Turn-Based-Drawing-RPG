@@ -1,3 +1,10 @@
+// ChooseCharacterScreen.java
+// This file deals with the character select screen and sends intent to MainActivity
+// CPSC 312-02, Fall 2021
+// Project
+// Sources: https://www.youtube.com/watch?v=LqJko2Ln86E followed this video series to create this class
+//
+// Created by Ethan Bao on 12/01/21
 package com.example.basic_tbb;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -91,6 +98,7 @@ public class ChooseCharacterScreen extends AppCompatActivity {
             }
         });
 
+        //opens the gallery to select a photo for the Custom hero
         loadCharacter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

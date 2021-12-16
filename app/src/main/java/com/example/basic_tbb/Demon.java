@@ -1,3 +1,10 @@
+// Demon.java
+// This is the class file for the Demon enemy
+// CPSC 312-02, Fall 2021
+// Project
+//
+//
+// Created by Ethan Bao on 10/16/2021
 package com.example.basic_tbb;
 
 import java.util.Random;

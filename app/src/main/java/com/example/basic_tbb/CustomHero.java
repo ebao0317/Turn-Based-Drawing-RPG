@@ -1,3 +1,10 @@
+// CustomHero.java
+// This is the class file for the Custom Hero
+// CPSC 312-02, Fall 2021
+// Project
+//
+//
+// Created by Colton Storebo on 12/13/2021
 package com.example.basic_tbb;
 
 import android.net.Uri;

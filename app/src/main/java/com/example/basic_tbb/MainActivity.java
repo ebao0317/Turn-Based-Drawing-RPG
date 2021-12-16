@@ -1,3 +1,10 @@
+// MainActivity.java
+// This is the main activity game play loop for the Basic TBB. Runs the game and ends when a character's health hits 0
+// CPSC 312-02, Fall 2021
+// Project
+//
+//
+// Created by Ethan Bao on 10/14/2021
 package com.example.basic_tbb;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         if(intent != null) {
             if(intent.hasExtra("custom character"))
             {
+                //if it is a custom hero, loads their image that they just selected
                 hero = (Hero) intent.getSerializableExtra("custom character");
                 Uri image = Uri.parse(intent.getStringExtra("image"));
                 heroImage.setImageURI(image);
@@ -278,6 +286,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*
+     * Deals with the monster's turn, since it is always the same
+     */
     public void monsterTurn() {
         int monsterChoice = random.nextInt(4 - 1) + 1;
         switch (monsterChoice) {
@@ -329,6 +340,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    /*
+     * Checks if the game has finished and sets the winner
+     */
     public void gameOverCheck() {
         String winner;
         if(monster.HP <= 0 || hero.HP <= 0) {
@@ -345,6 +360,10 @@ public class MainActivity extends AppCompatActivity {
             actionInfo.append("\n" + winner + " has won this time!");
         }
     }
+
+    /*
+     * Randomly chooses the monster that the player will fight
+     */
     public void chooseMonster() {
         int monsterPicker = random.nextInt(4) + 1;
         if(monsterPicker == 1) {
