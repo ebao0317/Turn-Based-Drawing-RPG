@@ -1,6 +1,8 @@
 package com.example.basic_tbb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -40,13 +42,15 @@ public class Sorcerer extends Hero implements Serializable {
 //    }
 
     @Override
-    public void magic(DungeonCharacter enemy) {
+    public List<String> magic(DungeonCharacter enemy) {
+        List<String> magicDescriptions= new ArrayList<>();
         Random randNum = new Random();
         double randomDouble = randNum.nextDouble();
         int heal;
         if(HP == 200) { //if it is dead, cannot heal. if it took no damage, should not heal
-            System.out.println(name + " tried healing but you cannot heal past your max HP");
-            return;
+            magicDescriptions.add("can't heal past full health!");
+            magicDescriptions.add("healed 0 HP");
+            return magicDescriptions;
         }
         heal = randNum.nextInt(70 - 40) + 40;
 
@@ -54,12 +58,15 @@ public class Sorcerer extends Hero implements Serializable {
             heal = 200 - HP;
         }
         HP += heal;
-        System.out.println(name + " successfully healed for " + heal + " HP.");
-        System.out.println(name + " now has " + HP + " HP.");
+
+        magicDescriptions.add(" healed herself");
+        magicDescriptions.add(" healed "+String.valueOf(heal) + " HP");
+        return magicDescriptions;
     }
 
     @Override
-    public void specialSkill(DungeonCharacter enemy) {
+    public String specialSkill(DungeonCharacter enemy) {
+        String nameOfAbility = "Suisei's Comet";
         Random random = new Random();
         double randomDouble = random.nextDouble();
         int damage;
@@ -70,9 +77,7 @@ public class Sorcerer extends Hero implements Serializable {
             minDmgRange = 100;
             maxDmgRange = 180;
         }
-        else {
-            System.out.println("Suisei's Comet has failed to hit...");
-        }
+        return nameOfAbility;
     }
 }
 

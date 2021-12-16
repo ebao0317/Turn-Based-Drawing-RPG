@@ -1,6 +1,9 @@
 package com.example.basic_tbb;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -40,32 +43,28 @@ public class Warrior extends Hero implements Serializable {
 //    }
 
     @Override
-    public void specialSkill(DungeonCharacter enemy) {
+    public String specialSkill(DungeonCharacter enemy) {
+        String nameOfAbility = "CRUSHING BLOW";
         Random random = new Random();
         double randomDouble = random.nextDouble();
         int damage;
         if(0.3 > randomDouble) {
-            damage  = random.nextInt(250 - 150) + 150;
-            System.out.println(name + " used CRUSHING BLOW!!!");
+            damage = random.nextInt(250 - 150) + 150;
             enemy.damageLastTaken = damage;
             minDmgRange = 150;
             maxDmgRange = 250;
         }
-        else {
-            System.out.println("CRUSHING BLOW has failed to hit...");
-        }
+        return nameOfAbility;
     }
 
     @Override
-    public void magic(DungeonCharacter enemy) {
+    public List<String> magic(DungeonCharacter enemy) {
         defense += 5;
-        System.out.println(name + " increased their defense by 5");
-        /*
-        for(int i = 0; i < character.length; ++i) {
-            character[i].defense += 3;
-        }
+        List<String> magicDescriptions= new ArrayList<>();
+        magicDescriptions.add(" casted Barrier");
+        magicDescriptions.add(" raised her defense by 5");
 
-         */
+        return magicDescriptions;
     }
 }
 

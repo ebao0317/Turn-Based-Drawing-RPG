@@ -1,5 +1,6 @@
 package com.example.basic_tbb;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Scanner;
 
 abstract public class Hero extends DungeonCharacter implements Serializable {
@@ -7,8 +8,8 @@ abstract public class Hero extends DungeonCharacter implements Serializable {
         super(name, HP, defense, minDmgRange, maxDmgRange, hitChance, blockChance);
     }
 
-    abstract public void specialSkill(DungeonCharacter enemy);
-    abstract public void magic(DungeonCharacter enemy);
+    abstract public String specialSkill(DungeonCharacter enemy);
+    abstract public List<String> magic(DungeonCharacter enemy);
 
 }
 

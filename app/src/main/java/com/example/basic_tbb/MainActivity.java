@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,12 +56,10 @@ public class MainActivity extends AppCompatActivity {
         if(intent != null) {
             if(intent.hasExtra("custom character"))
             {
-                //CustomHero hero1 = new CustomHero();
-                //this.hero = hero1;
-                //this.hero.get
-                hero = (CustomHero) intent.getSerializableExtra("custom character");
-                //Uri image = hero.
-                //heroImage.setImageURI(image);
+                CustomHero customHero;
+                customHero = (CustomHero) intent.getSerializableExtra("custom character");
+                heroImage.setImageURI(customHero.getHeroImage());
+                hero = customHero;
             }
             else {
                 hero = (Hero) intent.getSerializableExtra("hero");
@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if (monster.checkBlock()) {
                         actionInfo.append("\n" + monster.name + " successfully blocked/evaded the attack");
-                        System.out.println(monster.name + " successfully blocked/evaded the attack");
                     }
                     else {
                         monster.takeDamage();
@@ -109,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if(hero.checkBlock()) {
                         actionInfo.append("\n" + hero.name + " successfully blocked/evaded the attack");
-                        System.out.println(hero.name + " successfully blocked/evaded the attack");
                     }
                     else {
                         hero.takeDamage();
@@ -127,46 +125,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 actionInfo.setText("Actions this Round");
-                hero.specialSkill(monster);
-                if(hero instanceof Warrior) {
-                    if(monster.damageLastTaken == 0) {
-                        actionInfo.append("\n" + hero.name + " failed to hit CRUSHING BLOW");
-                    }
-                    else {
-                        actionInfo.append("\n" + hero.name + " successfully landed CRUSHING BLOW");
-                    }
-                }
-                if(hero instanceof Sorcerer) {
-                    if(monster.damageLastTaken == 0) {
-                        actionInfo.append("\n" + hero.name + " failed to hit Suisei's Comet");
-                    }
-                    else {
-                        actionInfo.append("\n" + hero.name + " successfully landed Suisei's Comet");
-                    }
-                }
-                if(hero instanceof Thief) {
-                    if(monster.damageLastTaken == 0) {
-                        actionInfo.append("\n" + hero.name + " failed to hit Double Strike");
-                    }
-                    else {
-                        actionInfo.append("\n" + hero.name + " successfully landed Double Strike");
-                    }
-                }
-                if(hero instanceof Archer) {
-                    actionInfo.append("\n" + hero.name + " used True Shot");
-                    actionInfo.append("\n Your aim never fails you!");
-                }
-                if (monster.damageLastTaken == 0) {
-                    actionInfo.append("\n" + hero.name + "'s attack missed...");
-                }
-                if(hero instanceof CustomHero) {
-                    if(monster.damageLastTaken == 0) {
-                        actionInfo.append("\n" + hero.name + " failed to land Special Attack");
-                    }
-                    else {
-                        actionInfo.append("\n" + hero.name + " successfully landed Special Attack");
-                    }
-                }
+                String abilityDescription = hero.specialSkill(monster);
+
+                if(monster.damageLastTaken == 0)
+                    actionInfo.append("\n" + hero.name + "failed to hit " + abilityDescription);
+                else
+                    actionInfo.append("\n" + hero.name + "successfully landed " + abilityDescription);
+
                 monsterTurn();
                 if (monster.ifDamageTaken()) {
                     if (monsterBlock) {
@@ -174,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if (monster.checkBlock()) {
                         actionInfo.append("\n" + monster.name + " successfully blocked/evaded the attack");
-                        System.out.println(monster.name + " successfully blocked/evaded the attack");
                     }
                     else {
                         monster.takeDamage();
@@ -194,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if(hero.checkBlock()) {
                         actionInfo.append("\n" + hero.name + " successfully blocked/evaded the attack");
-                        System.out.println(hero.name + " successfully blocked/evaded the attack");
                     }
                     else {
                         hero.takeDamage();
@@ -211,26 +174,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 actionInfo.setText("Actions this Round");
-                hero.magic(monster);
-                if(hero instanceof Warrior) {
-                    actionInfo.append("\n" + hero.name + " casted Barrier");
-                    actionInfo.append("\n" + hero.name + " raised her defense by 5");
-                }
-                if(hero instanceof Sorcerer) {
-                    actionInfo.append("\n" + hero.name + " healed herself");
-                }
-                if(hero instanceof Thief) {
-                    actionInfo.append("\n" + hero.name + " casted Cloak");
-                    actionInfo.append("\n" + hero.name + " will evade everything this turn");
-                }
-                if(hero instanceof Archer) {
-                    actionInfo.append("\n" + hero.name + " casted Civilization's Blessing");
-                    actionInfo.append("\n" + hero.name + " increased damage range by 15");
-                }
-                if(hero instanceof CustomHero) {
-                    actionInfo.append("\n" + hero.name + " casted their True Magic");
-                    actionInfo.append("\n" + hero.name + " increased damage range by 15");
-                }
+                List<String> magicDescriptions = new ArrayList<>();
+                magicDescriptions = hero.magic(monster);
+
+                actionInfo.append("\n" + hero.name + magicDescriptions.get(0));
+                actionInfo.append("\n" + hero.name + magicDescriptions.get(1));
+
+
                 monsterTurn();
                     if (hero.ifDamageTaken()) {
                         if (heroBlock) {
@@ -238,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                         if (hero.checkBlock()) {
                             actionInfo.append("\n" + hero.name + " successfully blocked/evaded the attack");
-                            System.out.println(hero.name + " successfully blocked/evaded the attack");
                         } else {
                             hero.takeDamage();
                             actionInfo.append("\n" + hero.name + " took " + hero.damageLastTaken + " damage");
@@ -266,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if(hero.checkBlock()) {
                         actionInfo.append("\n" + hero.name + " successfully blocked/evaded the attack");
-                        System.out.println(hero.name + " successfully blocked/evaded the attack");
                     }
                     else {
                         hero.takeDamage();
@@ -287,7 +235,6 @@ public class MainActivity extends AppCompatActivity {
         switch (monsterChoice) {
             case 1:
                 actionInfo.append("\n" + monster.name + " attacks");
-                System.out.println(monster.name + " attacks");
                 monster.attack(hero);
                 if (hero.damageLastTaken == 0) {
                     actionInfo.append("\n" + monster.name + " attack missed...");
@@ -296,7 +243,6 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 monsterBlock = true;
                 actionInfo.append("\n" + monster.name + " is guarding");
-                System.out.println(monster.name + " is guarding");
                 break;
             case 3:
                 monster.specialSkill(hero);

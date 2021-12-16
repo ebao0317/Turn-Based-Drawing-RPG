@@ -20,15 +20,15 @@ import android.widget.Toast;
 
 public class CreateCharacterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private ImageView heroImage;
-    private Button drawImage;
-    private Button loadImage;
-    private EditText heroName;
-    private Spinner magicSpinner;
-    private Spinner skillSpinner;
-    private EditText magicName;
-    private EditText skillName;
-    private Button beginGame;
+    ImageView heroImage;
+    Button drawImage;
+    Button loadImage;
+    EditText heroName;
+    Spinner magicSpinner;
+    Spinner skillSpinner;
+    EditText magicName;
+    EditText skillName;
+    Button beginGame;
 
     CustomHero hero;
 

@@ -13,6 +13,14 @@
     <string name="magic">Magic</string>
     <string name="skill">Skill</string>
     <string name="enter_name_of_your_skill">enter name of your skill</string>
+    <string name="hero_image">hero_image</string>
+    <string name="begin_game">Begin Game</string>
+    <string name="magic_type">Magic Type:</string>
+    <string name="draw_image">Draw Image</string>
+    <string name="load_image_from_gallery">Load Image from gallery</string>
+    <string name="skill_type">Skill Type</string>
+    <string name="magic_name">Magic Name:</string>
+    <string name="skill_name">Skill Name:</string>
 
     <string-array name="magicTypes">
         <item>Support Magic</item>

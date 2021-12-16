@@ -3,6 +3,8 @@ package com.example.basic_tbb;
 import android.net.Uri;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class CustomHero extends Hero implements Serializable {
@@ -20,55 +22,70 @@ public class CustomHero extends Hero implements Serializable {
 
     public CustomHero()
     {
-        super("Custom Hero",200, 15, 60, 100, 0.8, 0.4);
+        super("Custom Hero",200, 15, 60, 100, 0.75, 0.4);
     }
 
     @Override
-    public void specialSkill(DungeonCharacter enemy) {
-        //TODO maybe allow the user to create their own special ability
+    public String specialSkill(DungeonCharacter enemy) {
+        String nameOfAbility = "";
         Random random = new Random();
         double randomDouble = random.nextDouble();
-        int damage;
-        //System.out.println(name + "used Special Ability");
-        //System.out.println("Success!");
-        //damage  = random.nextInt(100 - 60) + 60;
-        //enemy.damageLastTaken = damage;
-        //minDmgRange = 60;
-        //maxDmgRange = 100;
 
         switch(this.specialAbility)
         {
             case RUSHATTACK:
-                return;
+                //Ability does considerably more damage at the cost of the hero's own health and accuracy
+                nameOfAbility = "Rush Attack";
+                if(0.5 > randomDouble)
+                {
+                    HP -= 15;
+                    enemy.damageLastTaken = 190;
+                }
+                return nameOfAbility;
+
             case HEAVYATTACK:
-                return;
+                //Ability does more damage than a regular attack at the cost of some accuracy
+                nameOfAbility = "Heavy Attack";
+                if(0.5 > randomDouble)
+                    enemy.damageLastTaken = 130;
+
+                return nameOfAbility;
+
             case ACCURATEATTACK:
-                return;
-            default:
-                return;
+                //Ability always hits
+                enemy.damageLastTaken = 60;
+                nameOfAbility = "Accurate Attack";
+                return nameOfAbility;
         }
+        return null;
     }
 
     @Override
-    public void magic(DungeonCharacter enemy) {
-        //TODO maybe allow the user to create their own magic
-        System.out.println(name + "used " + magicName);
-        System.out.println(name + " permanently increased their damage range by 15");
-        minDmgRange += 15;
-        maxDmgRange += 15;
+    public List<String> magic(DungeonCharacter enemy) {
+        List<String> magicDescriptions= new ArrayList<>();
 
         switch(this.magicAbility)
         {
             case DEFENSEMAGIC:
-                System.out.println(name + "used " + magicName);
-                return;
+                //Buff defense
+                defense += 5;
+                magicDescriptions.add("casted Barrier");
+                magicDescriptions.add(" increased it's defense by 5");
+                return magicDescriptions;
             case OFFENSEMAGIC:
-                System.out.println(name + "used " + magicName);
-                return;
+                //Shoot fireball
+                enemy.damageLastTaken = 60;
+                magicDescriptions.add(" casted a Fireball");
+                magicDescriptions.add(" dealt 60 damage to the enemy");
+                return magicDescriptions;
             case SUPPORTMAGIC:
-                System.out.println(name + "used " + magicName);
-                return;
+                //Heal yourself
+                HP += 85;
+                magicDescriptions.add(" casted a healing spell");
+                magicDescriptions.add(" healed 85 HP");
+                return magicDescriptions;
         }
+        return null;
     }
 
 

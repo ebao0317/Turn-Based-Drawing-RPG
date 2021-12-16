@@ -22,6 +22,7 @@ public class ChooseCharacterScreen extends AppCompatActivity {
     Button thiefButton;
     Button archerButton;
     Button customCharacter;
+    Button howToPlay;
 
     Uri selectedImage;
     private static final int PICK_IMAGE = 1;
@@ -35,6 +36,8 @@ public class ChooseCharacterScreen extends AppCompatActivity {
         sorcererButton = findViewById(R.id.sorcererButton);
         thiefButton = findViewById(R.id.thiefButton);
         archerButton = findViewById(R.id.archerButton);
+        customCharacter = findViewById(R.id.to_PaintActivity);
+        howToPlay = findViewById(R.id.how_to_play);
 
 
         warriorButton.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +88,14 @@ public class ChooseCharacterScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ChooseCharacterScreen.this, CreateCharacterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        howToPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChooseCharacterScreen.this, HowToPlayActivity.class);
                 startActivity(intent);
             }
         });

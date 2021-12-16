@@ -61,16 +61,16 @@
         android:id="@+id/to_PaintActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Draw Character"
+        android:text="Create Class"
         app:layout_constraintEnd_toEndOf="@+id/archerButton"
         app:layout_constraintStart_toStartOf="@+id/archerButton"
         app:layout_constraintTop_toBottomOf="@+id/archerButton" />
 
     <Button
-        android:id="@+id/load_character"
+        android:id="@+id/how_to_play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Load Character"
+        android:text="How To Play"
         app:layout_constraintEnd_toEndOf="@+id/to_PaintActivity"
         app:layout_constraintStart_toStartOf="@+id/to_PaintActivity"
         app:layout_constraintTop_toBottomOf="@+id/to_PaintActivity" />

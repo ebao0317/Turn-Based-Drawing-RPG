@@ -10,7 +10,7 @@
         android:id="@+id/begin_game"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Begin Game"
+        android:text="@string/begin_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -21,6 +21,7 @@
         android:layout_height="156dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/hero_image"
         app:layout_constraintEnd_toStartOf="@+id/draw_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,9 +35,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="64dp"
         android:hint="@string/hero_name"
+        android:inputType="text"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hero_image" />
+        app:layout_constraintTop_toBottomOf="@+id/hero_image"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/magic_type"
@@ -45,7 +49,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:paddingVertical="8dp"
-        android:text="Magic Type:"
+        android:text="@string/magic_type"
         app:layout_constraintBottom_toTopOf="@+id/skill_type"
         app:layout_constraintEnd_toStartOf="@+id/magic_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +60,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Draw Image"
+        android:text="@string/draw_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/hero_image"
@@ -67,7 +71,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Load Image from gallery"
+        android:text="@string/load_image_from_gallery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/hero_image"
         app:layout_constraintTop_toBottomOf="@+id/draw_image" />
@@ -75,12 +79,13 @@
     <Spinner
         android:id="@+id/magic_spinner"
         android:layout_width="0dp"
-        android:layout_height="35dp"
+        android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/magic_type"
-        app:layout_constraintTop_toBottomOf="@+id/hero_name" />
+        app:layout_constraintTop_toBottomOf="@+id/hero_name"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/skill_type"
@@ -90,7 +95,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:paddingVertical="8dp"
-        android:text="Skill Type"
+        android:text="@string/skill_type"
         app:layout_constraintBottom_toTopOf="@+id/magic_name"
         app:layout_constraintEnd_toStartOf="@+id/skill_spinner"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,21 +104,22 @@
     <Spinner
         android:id="@+id/skill_spinner"
         android:layout_width="0dp"
-        android:layout_height="35dp"
+        android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/skill_type"
-        app:layout_constraintTop_toBottomOf="@+id/magic_type" />
+        app:layout_constraintTop_toBottomOf="@+id/magic_type"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/magic_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:paddingVertical="13dp"
-        android:text="Magic Name:"
+        android:text="@string/magic_name"
         app:layout_constraintEnd_toStartOf="@+id/enter_magic_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skill_type" />
@@ -125,7 +131,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:paddingVertical="13dp"
-        android:text="Skill Name:"
+        android:text="@string/skill_name"
         app:layout_constraintEnd_toStartOf="@+id/enter_skill_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/magic_name" />
@@ -137,10 +143,13 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:hint="@string/magic"
+        android:inputType="text"
+        android:minHeight="48dp"
         android:paddingHorizontal="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/magic_name"
-        app:layout_constraintTop_toBottomOf="@+id/skill_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/skill_spinner"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/enter_skill_name"
@@ -149,8 +158,11 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:hint="@string/enter_name_of_your_skill"
+        android:inputType="text"
+        android:minHeight="48dp"
         android:paddingHorizontal="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/skill_name"
-        app:layout_constraintTop_toBottomOf="@+id/magic_name" />
+        app:layout_constraintTop_toBottomOf="@+id/magic_name"
+        android:autofillHints="" />
 </androidx.constraintlayout.widget.ConstraintLayout>
