@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
             {
                 CustomHero customHero;
                 customHero = (CustomHero) intent.getSerializableExtra("custom character");
-                heroImage.setImageURI(customHero.getHeroImage());
+                Uri image = Uri.parse(intent.getStringExtra("image"));
+                heroImage.setImageURI(image);
                 hero = customHero;
             }
             else {

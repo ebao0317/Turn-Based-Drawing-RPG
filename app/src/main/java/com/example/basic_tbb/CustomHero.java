@@ -14,7 +14,7 @@ public class CustomHero extends Hero implements Serializable {
 
     //strings needed to output to console what the users abilities are
     private String magicName = "Magic";
-    private String specialSkillEffect = "Special Skill";
+    private String specialSkillEffect;
 
     //default values
     private MagicType magicAbility = MagicType.SUPPORTMAGIC;
@@ -27,7 +27,7 @@ public class CustomHero extends Hero implements Serializable {
 
     @Override
     public String specialSkill(DungeonCharacter enemy) {
-        String nameOfAbility = "";
+        String defaultAbilityName;
         Random random = new Random();
         double randomDouble = random.nextDouble();
 
@@ -35,27 +35,37 @@ public class CustomHero extends Hero implements Serializable {
         {
             case RUSHATTACK:
                 //Ability does considerably more damage at the cost of the hero's own health and accuracy
-                nameOfAbility = "Rush Attack";
+                defaultAbilityName = "Rush Attack";
                 if(0.5 > randomDouble)
                 {
                     HP -= 15;
                     enemy.damageLastTaken = 190;
                 }
-                return nameOfAbility;
+                if(specialSkillEffect == null)
+                    return defaultAbilityName;
+                else
+                    return specialSkillEffect;
 
             case HEAVYATTACK:
                 //Ability does more damage than a regular attack at the cost of some accuracy
-                nameOfAbility = "Heavy Attack";
+                defaultAbilityName = "Heavy Attack";
                 if(0.5 > randomDouble)
                     enemy.damageLastTaken = 130;
 
-                return nameOfAbility;
+                if(specialSkillEffect == null)
+                    return defaultAbilityName;
+                else
+                    return specialSkillEffect;
 
             case ACCURATEATTACK:
                 //Ability always hits
                 enemy.damageLastTaken = 60;
-                nameOfAbility = "Accurate Attack";
-                return nameOfAbility;
+                defaultAbilityName = "Accurate Attack";
+
+                if(specialSkillEffect == null)
+                    return defaultAbilityName;
+                else
+                    return specialSkillEffect;
         }
         return null;
     }
@@ -69,20 +79,24 @@ public class CustomHero extends Hero implements Serializable {
             case DEFENSEMAGIC:
                 //Buff defense
                 defense += 5;
-                magicDescriptions.add("casted Barrier");
+                magicDescriptions.add(" casted " + magicName);
                 magicDescriptions.add(" increased it's defense by 5");
                 return magicDescriptions;
             case OFFENSEMAGIC:
                 //Shoot fireball
                 enemy.damageLastTaken = 60;
-                magicDescriptions.add(" casted a Fireball");
+                magicDescriptions.add(" casted " + magicName);
                 magicDescriptions.add(" dealt 60 damage to the enemy");
                 return magicDescriptions;
             case SUPPORTMAGIC:
                 //Heal yourself
-                HP += 85;
-                magicDescriptions.add(" casted a healing spell");
-                magicDescriptions.add(" healed 85 HP");
+                int heal = 85;
+                if(HP + heal > 200) {
+                    heal = 200 - HP;
+                    magicDescriptions.add(" casted " + magicName);
+                    magicDescriptions.add(" healed "+ heal +" HP");
+                }
+                HP += heal;
                 return magicDescriptions;
         }
         return null;
@@ -92,7 +106,7 @@ public class CustomHero extends Hero implements Serializable {
     public String getHeroName() {return this.name;}
     public String getMagicName(){return this.magicName;}
     public String getSpecialSkillName(){return this.specialSkillEffect;}
-    public Uri getHeroImage() {return heroImage;}
+    public String getHeroImage() {return heroImage.toString();}
 
     public void setMagicName(String magicName){this.magicName = magicName;}
     public void setSpecialSkillEffect(String specialSkillEffect){this.specialSkillEffect = specialSkillEffect;}

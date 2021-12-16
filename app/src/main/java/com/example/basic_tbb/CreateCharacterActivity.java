@@ -31,21 +31,25 @@ public class CreateCharacterActivity extends AppCompatActivity implements Adapte
     Button beginGame;
 
     CustomHero hero;
+    Uri image; //this is need to pass the users drawn image to MainActivity because the game crashes if you try and send Uris through serialized classes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_character);
 
-        heroImage.findViewById(R.id.hero_image);
-        drawImage.findViewById(R.id.draw_image);
-        loadImage.findViewById(R.id.load_image);
-        heroName.findViewById(R.id.hero_name);
-        magicSpinner.findViewById(R.id.magic_spinner);
-        skillSpinner.findViewById(R.id.skill_spinner);
-        magicName.findViewById(R.id.magic_name);
-        skillName.findViewById(R.id.skill_name);
-        beginGame.findViewById(R.id.begin_game);
+        heroImage = findViewById(R.id.hero_image);
+        drawImage = findViewById(R.id.draw_image);
+        loadImage = findViewById(R.id.load_image);
+        heroName = findViewById(R.id.hero_name);
+        magicSpinner = findViewById(R.id.magic_spinner);
+        skillSpinner = findViewById(R.id.skill_spinner);
+        magicName = findViewById(R.id.enter_magic_name);
+        skillName = findViewById(R.id.enter_skill_name);
+        beginGame = findViewById(R.id.begin_game);
+
+        hero = new CustomHero();
+        image = Uri.parse("android.resource://com.example.basic_tbb//drawable/warrior"); //set default image so you don't pass a null image through an intent
 
         drawImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +136,7 @@ public class CreateCharacterActivity extends AppCompatActivity implements Adapte
             public void onClick(View view) {
                 Intent intent = new Intent(CreateCharacterActivity.this, MainActivity.class);
                 intent.putExtra("custom character", hero);
+                intent.putExtra("image", image.toString());
 
                 startActivity(intent);
             }
@@ -157,6 +162,7 @@ public class CreateCharacterActivity extends AppCompatActivity implements Adapte
     private void setHeroImage(Uri image)
     {
         heroImage.setImageURI(image);
+        this.image = image;
     }
 
     // Outputs a toast with message passed in as pram
